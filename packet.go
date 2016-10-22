@@ -363,3 +363,21 @@ const (
 A DHCP server always returns its own address in the 'server identifier' option.
 DHCP defines a new 'client identifier' option that is used to pass an explicit client identifier to a DHCP server.
 */
+
+//go:generate stringer -type=ClientArchitecture
+
+// ClientArchitecture describes the architecture of a client system.  Ref.: https://tools.ietf.org/html/rfc4578
+type ClientArchitecture uint16
+
+const (
+	ClientArchIntelX86        ClientArchitecture = 0
+	ClientArchPC98                               = 1
+	ClientArchEFIItanium                         = 2
+	ClientArchAlpha                              = 3
+	ClientArchArcX86                             = 4
+	ClientArchIntelLeanClient                    = 5
+	ClientArchEFIIA32                            = 6
+	ClientArchEFIBC                              = 7
+	ClientArchEFIXscale                          = 8
+	ClientArchEFIX8664                           = 9
+)
